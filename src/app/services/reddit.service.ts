@@ -10,9 +10,9 @@ export class RedditService {
 
   constructor(private http:HttpClient) { }
 
-  url:string = "https://www.reddit.com/r/aww/.json";
+  url:string = "https://www.reddit.com/r/";  // changes to this for extended
 
-  getPosts():Observable<RedditModel>{
-    return this.http.get<RedditModel>(this.url);
+  getPosts(sub:string):Observable<RedditModel>{
+    return this.http.get<RedditModel>(`${this.url}${sub}/.json`);   // changes to this for extended
   }
 }
